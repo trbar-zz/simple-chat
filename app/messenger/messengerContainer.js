@@ -1,13 +1,12 @@
 // @flow
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {useSelector, useDispatch} from 'react-redux';
 import {styles as s} from 'react-native-style-tachyons';
 
 import {appendMessage} from './messengerActions';
-import seedMessageData from './messengerSeedData';
 
 const MessageContainer = () => {
   const isLoading = useSelector((state) => state.messenger.isLoading);
