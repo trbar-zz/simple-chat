@@ -2,21 +2,19 @@ import {createLogger} from 'redux-logger';
 import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-const sagaMiddleware = createSagaMiddleware();
+import rootSaga from './rootSaga';
 
-let middleware = [sagaMiddleware];
-if (__DEV__) {
-  const loggerMiddleware = createLogger();
-  middleware = [...middleware, loggerMiddleware];
-}
+const sagaMiddleware = createSagaMiddleware();
+const loggerMiddleware = createLogger();
 
 function configureStore() {
   // Singleton store
   const store = createStore(
     require('./rootReducer').default,
     {},
-    applyMiddleware(...middleware),
+    applyMiddleware(sagaMiddleware, loggerMiddleware),
   );
+  sagaMiddleware.run(rootSaga);
 
   return store;
 }

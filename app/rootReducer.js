@@ -8,7 +8,7 @@ import type {AppState} from './types';
 type AppReducer = (state: any, action: any) => AppState;
 
 const rootReducer: AppReducer = combineReducers({
-  messengerReducer,
+  messenger: messengerReducer,
 });
 
 export default rootReducer;
