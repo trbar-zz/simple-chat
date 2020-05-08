@@ -1,5 +1,5 @@
 # Simple Chat
-![](SimpleChat.gif)
+![](SimpleChatExample.gif)
 
 # What does this app do:
 - simple chat app based off react-native-gifted-chat
