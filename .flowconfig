@@ -52,7 +52,6 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 sketchy-null-number=warn
 sketchy-null-mixed=warn
 sketchy-number=warn
-untyped-type-import=warn
 nonstrict-import=warn
 deprecated-type=warn
 unsafe-getters-setters=warn
