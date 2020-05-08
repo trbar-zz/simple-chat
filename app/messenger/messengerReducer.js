@@ -2,9 +2,9 @@
 
 import type {MessengerState} from './types';
 import {
-  LOAD_MESSAGES_REQUEST,
-  LOAD_MESSAGES_SUCCESS,
-  LOAD_MESSAGES_FAILURE,
+  LOAD_SEED_MESSAGES_REQUEST,
+  LOAD_SEED_MESSAGES_SUCCESS,
+  LOAD_SEED_MESSAGES_FAILURE,
   APPEND_MESSAGES,
 } from './messengerActions';
 
@@ -12,6 +12,7 @@ const initialState = {
   isLoading: false,
   messages: [],
   error: null,
+  hasSeededMessagesBefore: false,
 };
 
 const messengerReducer = (
@@ -19,19 +20,20 @@ const messengerReducer = (
   action: any,
 ): MessengerState => {
   switch (action.type) {
-    case LOAD_MESSAGES_REQUEST:
+    case LOAD_SEED_MESSAGES_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case LOAD_MESSAGES_SUCCESS:
+    case LOAD_SEED_MESSAGES_SUCCESS:
       return {
         ...state,
         isLoading: false,
         messages: action.messages.reverse(),
+        hasSeededMessagesBefore: true,
       };
-    case LOAD_MESSAGES_FAILURE:
+    case LOAD_SEED_MESSAGES_FAILURE:
       return {
         ...state,
         isLoading: false,

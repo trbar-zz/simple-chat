@@ -1,9 +1,9 @@
 // @flow
-
 import React from 'react';
 import {Dimensions, StyleSheet} from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 import Store from './configureStore';
 import MessengerContainer from './messenger/messengerContainer';
@@ -18,8 +18,10 @@ NativeTachyons.build(
 
 const App = () => {
   return (
-    <Provider store={Store}>
-      <MessengerContainer />
+    <Provider store={Store.store}>
+      <PersistGate loading={null} persistor={Store.persistor}>
+        <MessengerContainer />
+      </PersistGate>
     </Provider>
   );
 };
