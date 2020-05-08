@@ -42,7 +42,7 @@ const messengerReducer = (
     case APPEND_MESSAGES:
       return {
         ...state,
-        messages: state.messages.concat(action.newMessages),
+        messages: action.newMessages.concat(state.messages),
       };
     default:
       return state;
